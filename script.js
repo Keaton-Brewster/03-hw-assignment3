@@ -10,7 +10,7 @@ var specialCase;
 var numbers;
 
 // setting up the value slider.
-// this is NOT a part of the assignment, but again, i feel that it greatly improves the user experience, so why not?
+// this is NOT a part of the assignment, but i feel that it greatly improves the user experience, so why not?
 var slider = document.getElementById("passwordLength");
 var output = document.getElementById("passwordValue");
 output.innerHTML = slider.value;
@@ -19,7 +19,7 @@ slider.oninput = function () {
 };
 
 // I chose to use checkboxes in the html for selecting password criteria instead of prompts, 
-// i know the assignment called for prompts, but i felt that checkboxes were a little more use friendly. 
+// Like the slider, I know the assignment called for something else, but i felt that checkboxes were a little more use friendly. 
 // This section of the code simply checks the checkboxes and sets a true/false statement depending on their position. 
 document.getElementById('upperCase').onclick = function () {
   if (this.checked) {
@@ -28,7 +28,7 @@ document.getElementById('upperCase').onclick = function () {
   else {
     upperCase = false;
   }
-  console.log(upperCase)//check
+  console.log(upperCase)//console check
 };
 document.getElementById('lowerCase').onclick = function () {
   if (this.checked) {
@@ -37,7 +37,7 @@ document.getElementById('lowerCase').onclick = function () {
   else {
     lowerCase = false;
   }
-  console.log(lowerCase)//check
+  console.log(lowerCase)//console check
 };
 document.getElementById('specialChar').onclick = function () {
   if (this.checked) {
@@ -46,7 +46,7 @@ document.getElementById('specialChar').onclick = function () {
   else {
     specialCase = false;
   }
-  console.log(specialCase)//check
+  console.log(specialCase)//console check
 };
 document.getElementById('numbers').onclick = function () {
   if (this.checked) {
@@ -55,7 +55,7 @@ document.getElementById('numbers').onclick = function () {
   else {
     numbers = false;
   }
-  console.log(numbers)//check
+  console.log(numbers)//console check
 };
 
 
@@ -112,7 +112,7 @@ function generatePassword() {
       numberChar = numberRange.charAt(Math.floor(Math.random() * numberRange.length));
       charSet.push(numberChar);
     }
-    console.log(charSet);
+    console.log(charSet); //console check
   }
 
   // this loop picks random characters form the list complied by the previous loop 
