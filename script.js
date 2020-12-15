@@ -80,7 +80,7 @@ function writePassword() {
 }
 }
 
-
+// write the function that actually generates a random password.
 function generatePassword() {
   // set up variables for the random selection of all true character sets
   let charSet = [];
@@ -129,6 +129,26 @@ function generatePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
