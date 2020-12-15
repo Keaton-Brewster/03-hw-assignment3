@@ -68,7 +68,7 @@ function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
 
-    if (password === undefined) { // give an alert if the password generator fails for some reason. mostly for development 
+    if (password === undefined) { // give an alert if the password generator fails for some reason. for dev purposes
       alert("error");
     }
     else {
@@ -123,7 +123,7 @@ function generatePassword() {
   };
   // finally, log the result to the console, as well as return the result
   // so that the main function can access the randomly generated password. 
-  console.log(passwordString);
+  console.log(passwordString); //console check
   return passwordString.join('').toString();
 }
 
