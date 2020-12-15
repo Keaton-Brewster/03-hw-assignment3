@@ -98,19 +98,19 @@ function generatePassword() {
   for (let i = 0; i < 75; i++) {
 
     if (upperCase === true) {
-      upperChar = upperRange.charAt(Math.ceil(Math.random() * upperRange.length));
+      upperChar = upperRange.charAt(Math.floor(Math.random() * upperRange.length));
       charSet.push(upperChar);
     }
     if (lowerCase === true) {
-      lowerChar = lowerRange.charAt(Math.ceil(Math.random() * lowerRange.length));
+      lowerChar = lowerRange.charAt(Math.floor(Math.random() * lowerRange.length));
       charSet.push(lowerChar);
     }
     if (specialCase === true) {
-      specialChar = specialRange.charAt(Math.ceil(Math.random() * specialRange.length));
+      specialChar = specialRange.charAt(Math.floor(Math.random() * specialRange.length));
       charSet.push(specialChar);
     }
     if (numbers === true) {
-      numberChar = numberRange.charAt(Math.ceil(Math.random() * numberRange.length));
+      numberChar = numberRange.charAt(Math.floor(Math.random() * numberRange.length));
       charSet.push(numberChar);
     }
     console.log(charSet);
