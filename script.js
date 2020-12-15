@@ -93,10 +93,10 @@ function generatePassword() {
   var numberRange = "1234567890";
 
   // this loop picks a bunch of random characters (if the respective checkbox is selected) and stores them in the charSet array
-  // the higher the number in the middle statement, the more "random" the charSet will become. (in theory. there is a practical limit though, and I chose a relatively small number so 
-  //                                                                                             that the cpu will not get burnt out on the number of loops)
+  // the higher the number in the middle statement, the more "random" the charSet will become. 
+  //                                (in theory. there is a practical limit, and I chose a relatively small number so 
+  //                                               that the function won't run slow due to the number of iterations)
   for (let i = 0; i < 75; i++) {
-
     if (upperCase === true) {
       upperChar = upperRange.charAt(Math.floor(Math.random() * upperRange.length));
       charSet.push(upperChar);
