@@ -120,8 +120,7 @@ function generatePassword() {
   // it uses var.length, which equals the user input for how long the password should be
   //    to determine how many random characters to select. 
   for (let i = 0; i < length; i++) {
-    var charPicked = "";
-    charPicked += charSet[Math.floor(Math.random() * charSet.length)];
+    var charPicked = charSet[Math.floor(Math.random() * charSet.length)];
     passwordString.push(charPicked);
   };
   // finally, log the result to the console, as well as return the result
