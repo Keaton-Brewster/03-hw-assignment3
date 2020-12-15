@@ -95,8 +95,7 @@ function generatePassword() {
   // this loop picks a bunch of random characters (if the respective checkbox is selected) and stores them in the charSet array
   // the higher the number in the middle statement, the more "random" the charSet will become. (in theory. there is a practical limit though, and I chose a relatively small number so 
   //                                                                                             that the cpu will not get burnt out on the number of loops)
-  // also, notedly, by using length + value, i can make the password complexity scale with the number of characters chosen.
-  for (let i = 0; i < (length + 25); i++) {
+  for (let i = 0; i < 75; i++) {
 
     if (upperCase === true) {
       upperChar = upperRange.charAt(Math.floor(Math.random() * upperRange.length));
