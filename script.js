@@ -86,7 +86,6 @@ function generatePassword() {
   let charSet = [];
   let passwordString = [];
 
-  var length = passwordLength;
   var upperRange = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lowerRange = "abcdefghijklmnopqrstuvwxyz";
   var specialRange = "!@#$%^&*()_+~`-=:;',.<>?/{}[]";
@@ -117,9 +116,8 @@ function generatePassword() {
   }
 
   // this loop picks random characters form the list complied by the previous loop 
-  // it uses var.length, which equals the user input for how long the password should be
-  //    to determine how many random characters to select. 
-  for (let i = 0; i < length; i++) {
+  // it uses passwordLength to ensure the generated password is the same length as specified by the user
+  for (let i = 0; i < passwordLength; i++) {
     var charPicked = charSet[Math.floor(Math.random() * charSet.length)];
     passwordString.push(charPicked);
   };
