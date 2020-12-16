@@ -93,10 +93,7 @@ function generatePassword() {
   var specialRange = "!@#$%^&*()_+~`-=:;',.<>?/{}[]";
   var numberRange = "1234567890";
 
-  // These functions run a loop on the selected array, and picks a bunch of random characters (if the respective checkbox is selected) and stores them in the charSet array
-  // the higher the number in the middle statement, the more "random" the charSet will become. 
-  //                                (in theory. there is a practical limit, and I chose a relatively small number so 
-  //                                               that the function won't run slow due to the number of iterations)
+  // doing truth checks to print the according char-sets into the respective arrays
   if (upperCase === true) {
     randomSelector(upperRange);
     charsetEnsure(upperRange);
@@ -113,15 +110,14 @@ function generatePassword() {
     randomSelector(numberRange);
     charsetEnsure(numberRange);
   };
-  // this is the function that provides a bunch of random characters to chose from. 
+  // this is the function that provides a bunch of random characters to chose from, and sends them into the randomSet array
   function randomSelector(arr) {
     for (let i = 0; i < 75; i++) {
       arrChar = arr.charAt(Math.floor(Math.random() * arr.length));
       randomSet.push(arrChar);
     };
   };
-  // now i need a portion of the function to ensure that at least one of each selected criteria is inserted into the password
-  // which I can run in the checks above
+  // So this ensures that if a char-set passes its truth check, at least one of that sets characters will show up in the generated password. 
   function charsetEnsure(arr) {
     arrChar = arr.charAt(Math.floor(Math.random() * arr.length));
     ensureSet.push(arrChar);
