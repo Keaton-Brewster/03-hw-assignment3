@@ -67,16 +67,16 @@ function writePassword() {
     // this is the function that provides a bunch of random characters to chose from, and sends them into the randomSet array
     // a lot of different methods could be used for the for-loop, specifically the middle parameter. I chose i < 75 so that it would really fill up the array with options
     // to choose from, to ensure a thoroughly random password, without running too many iterations and causing the function to run really slow. 
-    function randomSelector(arr) {
+    function randomSelector(x) {
       for (let i = 0; i < 75; i++) {
-        arrChar = arr.charAt(Math.floor(Math.random() * arr.length));
-        randomSet.push(arrChar);
+        xChar = x.charAt(Math.floor(Math.random() * x.length));
+        randomSet.push(xChar);
       };
     };
     // So this ensures that if a char-set passes its truth check, at least one of that sets characters will show up in the generated password. 
-    function charsetEnsure(arr) {
-      arrChar = arr.charAt(Math.floor(Math.random() * arr.length));
-      ensureSet.push(arrChar);
+    function charsetEnsure(x) {
+      xChar = x.charAt(Math.floor(Math.random() * x.length));
+      ensureSet.push(xChar);
     };
     //push the ensured chars to the passwordString, and joining them together so that they don't print with commas later.
     passwordString.push(ensureSet.join(''));
