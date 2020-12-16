@@ -65,6 +65,8 @@ function writePassword() {
       charsetEnsure(numberRange);
     };
     // this is the function that provides a bunch of random characters to chose from, and sends them into the randomSet array
+    // a lot of different methods could be used for the for-loop, specifically the middle parameter. I chose i < 75 so that it would really fill up the array with options
+    // to choose from, to ensure a thoroughly random password, without running too many iterations and causing the function to run really slow. 
     function randomSelector(arr) {
       for (let i = 0; i < 75; i++) {
         arrChar = arr.charAt(Math.floor(Math.random() * arr.length));
@@ -80,7 +82,8 @@ function writePassword() {
     passwordString.push(ensureSet.join(''));
 
     // this loop picks random characters form the list complied by the previous loop 
-    // it uses passwordLength to ensure the generated password is the same length as specified by the user
+    // it uses passwordLength - the length of ensureSet to ensure the generated password is the same length as specified by the user
+    // we have to subtract the length of ensureSet to still get the right number of characters upon generation.
     for (let i = 0; i < (passwordLength - ensureSet.length); i++) {
       var charPicked = randomSet[Math.floor(Math.random() * randomSet.length)];
       passwordString.push(charPicked);
