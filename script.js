@@ -30,7 +30,7 @@ function writePassword() {
   passwordText.value = password; // If you make it here, the program is working!
 }
 
-// write the function that actually generates a random password.
+// Here is the function that actually generates a random password.
 function generatePassword() {
   // set up variables for the random selection of all true character sets
   let randomSet = [];
