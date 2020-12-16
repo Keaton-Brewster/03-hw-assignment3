@@ -9,11 +9,12 @@ function writePassword() {
   } // In the while statement, i specify that the password length must be a number, and must be between 8 and 128. 
     // if the user given criteria for the password length does not meet these conditions, the prompt will be repeated. 
   while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128);
+  alert("You password will be " + passwordLength + " characters long."); // Confirming what they chose.
   // Once the user has satisfied the criteria for passwordLength, they are asked to confirm which character sets they want to include in their password. 
-  upperCase = confirm("Would you like your password to have uppercase characters? (OK for yes, cancel for no)");
-  lowerCase = confirm("Would you like your password to have lowercase characters? (Ok for yes, cancel for no)");
-  specialCase = confirm("Would you like your password to have special characters? (OK for yes, cancel for no)");
-  numbers = confirm("Would you like your password to have numbers? (OK for yes, cancel for no)");
+  upperCase = confirm("Would you like your password to include UPPER-CASE characters? (OK=YES, CANCEL=NO)");
+  lowerCase = confirm("Would you like your password to include LOWER-CASE characters? (OK=YES, CANCEL=NO)");
+  specialCase = confirm("Would you like your password to include SPECIAL characters? (OK=YES, CANCEL=NO)");
+  numbers = confirm("Would you like your password to include NUMBERS? (OK=YES, CANCEL=NO)");
   // Check here to make sure at least one of the criteria had been selected. 
   // If user selected no to all of them, they will be alerted, and the function quits. 
   if (upperCase === false && lowerCase === false && specialCase === false && numbers === false) {
