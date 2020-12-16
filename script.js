@@ -2,8 +2,8 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
-  
+function generatePassword() {
+
   // Using while loop to get user input on how long the password should be
   do {
     passwordLength = prompt("Please pick a password length between 8 and 128 characters long.");
@@ -26,7 +26,7 @@ function writePassword() {
     return;
   }
   // Once the required criteria is met, the password will be generated, along the criteria given. 
-  var password = generatePassword();
+  var password = generateRandomPassword();
   var passwordText = document.querySelector("#password");
   if (password === undefined) { // give an alert and stop the program if the password generator fails for some reason.
     alert("error");
@@ -36,7 +36,7 @@ function writePassword() {
 }
 
 // Here is the function that actually generates a random password.
-function generatePassword() {
+function generateRandomPassword() {
 
   // set up variables for the random selection of all true character sets
   let randomSet = [];
@@ -65,10 +65,10 @@ function generatePassword() {
 
   // this is the function that provides a bunch of random characters to chose from, and sends them into the randomSet array, to later be chosen from randomly agin.
   // There are different methods that could be used in place of the for-loop, specifically the middle parameter. 
-  // I chose i < 75 so that it would really fill up the randomSet array with options to choose from, to ensure a thoroughly random password, 
+  // I chose i < 100 so that it would really fill up the randomSet array with options to choose from, to ensure a thoroughly random password, 
   // without running too many iterations and causing the function to run really slow. 
   function randomSelector(x) {
-    for (let i = 0; i < 75; i++) {
+    for (let i = 0; i < 100; i++) {
       xChar = x.charAt(Math.floor(Math.random() * x.length));
       randomSet.push(xChar);
     };
@@ -98,7 +98,7 @@ function generatePassword() {
 };
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
 
 
 
