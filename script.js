@@ -76,49 +76,63 @@ function writePassword() {
     }
   }
   else {
-  alert("You must chose at least one of the password criteria")
-}
+    alert("You must chose at least one of the password criteria")
+  }
 }
 
 // write the function that actually generates a random password.
 function generatePassword() {
   // set up variables for the random selection of all true character sets
-  let charSet = [];
+  let randomSet = [];
+  let ensureSet = [];
   let passwordString = [];
+  let length = passwordLength;
 
   var upperRange = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lowerRange = "abcdefghijklmnopqrstuvwxyz";
   var specialRange = "!@#$%^&*()_+~`-=:;',.<>?/{}[]";
   var numberRange = "1234567890";
 
-  // this loop picks a bunch of random characters (if the respective checkbox is selected) and stores them in the charSet array
+  // These functions run a loop on the selected array, and picks a bunch of random characters (if the respective checkbox is selected) and stores them in the charSet array
   // the higher the number in the middle statement, the more "random" the charSet will become. 
   //                                (in theory. there is a practical limit, and I chose a relatively small number so 
   //                                               that the function won't run slow due to the number of iterations)
-  for (let i = 0; i < 75; i++) {
-    if (upperCase === true) {
-      upperChar = upperRange.charAt(Math.floor(Math.random() * upperRange.length));
-      charSet.push(upperChar);
-    }
-    if (lowerCase === true) {
-      lowerChar = lowerRange.charAt(Math.floor(Math.random() * lowerRange.length));
-      charSet.push(lowerChar);
-    }
-    if (specialCase === true) {
-      specialChar = specialRange.charAt(Math.floor(Math.random() * specialRange.length));
-      charSet.push(specialChar);
-    }
-    if (numbers === true) {
-      numberChar = numberRange.charAt(Math.floor(Math.random() * numberRange.length));
-      charSet.push(numberChar);
-    }
-    console.log(charSet); //console check
-  }
+  if (upperCase === true) {
+    randomSelector(upperRange);
+    charsetEnsure(upperRange);
+  };
+  if (lowerCase === true) {
+    randomSelector(lowerRange);
+    charsetEnsure(lowerRange);
+  };
+  if (specialCase === true) {
+    randomSelector(specialRange);
+    charsetEnsure(specialRange);
+  };
+  if (numbers === true) {
+    randomSelector(numberRange);
+    charsetEnsure(numberRange);
+  };
+  // this is the function that provides a bunch of random characters to chose from. 
+  function randomSelector(arr) {
+    for (let i = 0; i < 75; i++) {
+      arrChar = arr.charAt(Math.floor(Math.random() * arr.length));
+      randomSet.push(arrChar);
+    };
+  };
+  // now i need a portion of the function to ensure that at least one of each selected criteria is inserted into the password
+  // which I can run in the checks above
+  function charsetEnsure(arr) {
+    arrChar = arr.charAt(Math.floor(Math.random() * arr.length));
+    ensureSet.push(arrChar);
+  };
+  //push the ensured chars to the passwordString, and joining them together so that they don't print with commas later.
+  passwordString.push(ensureSet.join(''));
 
   // this loop picks random characters form the list complied by the previous loop 
   // it uses passwordLength to ensure the generated password is the same length as specified by the user
-  for (let i = 0; i < passwordLength; i++) {
-    var charPicked = charSet[Math.floor(Math.random() * charSet.length)];
+  for (let i = 0; i < (length - ensureSet.length); i++) {
+    var charPicked = randomSet[Math.floor(Math.random() * randomSet.length)];
     passwordString.push(charPicked);
   };
   // finally, log the result to the console, as well as return the result
