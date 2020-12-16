@@ -20,15 +20,5 @@ Home work assignment #3 was to set up the logic for a password generator that us
 >WHEN the password is generated    
 >THEN the password is either displayed in an alert or written to the page    
 
-Here is where I note that, while I have satisfied all the criteria, I have not done it in the exact way described.    
-Notable changes that I chose to make include:    
-* Using checkboxes to determine which character-sets would be used in the generation of the password, instead of JS confirms.      
-* Using a range input (slider) to set the desired length of the password, instead of a JS prompt      
-
-While these changes do make it such that the criteria given is not met exactly, I took my own liberty to improve over all user-experience by avoiding the use of JS prompts and confirms.
-
-
-
-
 
 View deployed version here: https://keaton-brewster.github.io/03-hw-assignment3/
