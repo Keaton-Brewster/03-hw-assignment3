@@ -8,7 +8,7 @@ function generatePassword() {
   do {
     passwordLength = prompt("Please pick a password length between 8 and 128 characters long.");
   }
-  // In the while statement, i specify that the password length must be a number, and must be between 8 and 128. 
+  // In this while statement, i specify that passwordLength must be a number, and must be between 8 and 128. 
   // if the user given criteria for the password length does not meet these conditions, the prompt will be repeated. 
   while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128);
   alert("You password will be " + passwordLength + " characters long."); // Confirming what they chose.
@@ -38,10 +38,9 @@ function generatePassword() {
 // Here is the function that actually generates a random password.
 function generateRandomPassword() {
 
-  // set up variables for the random selection of all true character sets
-  let randomSet = [];
-  let ensureSet = [];
-  let passwordString = [];
+  let randomSet = []; // Array for a bunch of random, possible characters, that will then go on to be randomly chosen from for the final password
+  let ensureSet = []; // Array for ensuring that at least one of each selected char-set will be included in the final password
+  let passwordString = []; // Array for the final, randomly generated password. 
 
   // AND the variables for the contents of each possible character set. 
   var upperRange = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -55,11 +54,11 @@ function generateRandomPassword() {
   truthCheck(specialCase, specialRange);
   truthCheck(numbers, numberRange);
 
-  // Truth-check function for the character selection. These are the functions run if the char-sets pass the truth test
+  // Truth-check function for the character selection.
   function truthCheck(x, y) {
     if (x) {
-      randomSelector(y);
-      charsetEnsure(y);
+      randomSelector(y); // details below::
+      charsetEnsure(y); // details below::
     };
   };
 
@@ -74,16 +73,16 @@ function generateRandomPassword() {
     };
   };
 
-  // So this ensures that if a char-set passes its truth check, at least one of that sets characters will show up in the generated password. 
+  // This function is what ensures that if a char-set passes its truth check, at least one of that sets characters will show up in the generated password. 
   function charsetEnsure(x) {
     xChar = x.charAt(Math.floor(Math.random() * x.length));
     ensureSet.push(xChar);
   };
-
+  //then::
   //push the ensured chars to the passwordString, while joining them together so that they don't print with commas later.
   passwordString.push(ensureSet.join(''));
 
-  // this loop picks random characters form the list complied by the previous loop (randomSelector())
+  // this loop picks random characters form the randomSet array that was filled earlier by the previous loop (randomSelector())
   // it uses (passwordLength - ensureSet.length) to ensure the generated password is the same length as specified by the user
   // (you must subtract ensureSet, because those characters will be added by force, and do not account for what the user specified the length to be)
   for (let i = 0; i < (passwordLength - ensureSet.length); i++) {
