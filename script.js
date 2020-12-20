@@ -1,7 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate"),
-    resetBtn = document.querySelector("#resetBtn"),
-    passwordText = document.querySelector("#password");
+  resetBtn = document.querySelector("#resetBtn"),
+  passwordText = document.querySelector("#password"),
+  checkboxes = document.querySelectorAll("input[type=checkbox]");
 
 
 // made a few global variables, since this is a simple application and it will make a couple things easier. 
@@ -62,7 +63,7 @@ document.getElementById('numbers').onclick = function () {
 };
 
 
-// Write password to the #password input
+// OUTPUT a randomly generated password to the #password input
 function generatePassword() {
   // if/else to check and make sure at least one of the criteria had been selected. 
   if (upperCase || lowerCase || specialCase || numbers) {
@@ -84,7 +85,6 @@ function generatePassword() {
 
 // Here is the function that actually generates a random password.
 function generateRandomPassword() {
-
   let randomSet = []; // Array for a bunch of random, possible characters, that will then go on to be randomly chosen from for the final password
   let ensureSet = []; // Array for ensuring that at least one of each selected char-set will be included in the final password
   let passwordString = []; // Array for the final, randomly generated password. 
@@ -141,9 +141,18 @@ function generateRandomPassword() {
   return passwordString.join('').toString();
 };
 
-// Lastly, adding a function to reset the password. 
+// Lastly, adding a function to reset the password, along will all criteria, to default state. 
 function resetPassword() {
   passwordText.value = '';
+  slider.value = 8;
+  output.innerHTML = 8;
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = false;
+  };
+  upperCase = false;
+  lowerCase = false;
+  specialCase = false;
+  numbers = false;
 };
 
 // Add event listener to generate button
