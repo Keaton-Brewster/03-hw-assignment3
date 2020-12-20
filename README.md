@@ -21,7 +21,7 @@ Home work assignment #3 was to set up the logic for a password generator that us
 >THEN the password is either displayed in an alert or written to the page    
 
 Here is where I note that, while I have satisfied all the criteria, I have not done it in the exact way described.
-When using the application I built that was based /strictly/ on the criteria given, it resulted in a very awkward to use application.   
+When using the application I built that was based _strictly_ on the criteria given, it resulted in a very awkward to use application.   
 Notable changes that I chose to make include:    
 
 * Added directions in the form of text near the top of the page
