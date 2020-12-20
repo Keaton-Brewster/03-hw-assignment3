@@ -1,6 +1,6 @@
-03-hw-assignment3
-====
-### Password Generator
+Password Generator
+=========
+### This project was completed as an assignment for KU's coding program. 
 
 Home work assignment #3 was to set up the logic for a password generator that used the following criteria:
 
@@ -20,5 +20,20 @@ Home work assignment #3 was to set up the logic for a password generator that us
 >WHEN the password is generated    
 >THEN the password is either displayed in an alert or written to the page    
 
+Here is where I note that, while I have satisfied all the criteria, I have not done it in the exact way described.
+When using the application I built that was based /strictly/ on the criteria given, it resulted in a very awkward to use application.
+I took my liberties, and improved on the original idea to make a more user friendly experience.    
+Notable changes that I chose to make include:    
 
-View deployed version here: https://keaton-brewster.github.io/03-hw-assignment3/
+* Added directions in the form of text near the top of the page
+* Using checkboxes to determine which character-sets would be used in the generation of the password, instead of JS confirms.      
+* Using a range input (slider) to set the desired length of the password, instead of a JS prompt      
+* Adding a reset button to clear the field after you have copied your password
+
+While these changes do make it such that the criteria given is not met exactly, I took my own liberty to improve over all user-experience by avoiding the use of JS prompts and confirms.
+
+
+
+
+
+View deployed version here: https://keaton-brewster.github.io/password-generator/
